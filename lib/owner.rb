@@ -1,3 +1,64 @@
 class Owner
-  # code goes here
+
+  attr_accessor :dogs, :cats, :dog, :cat
+  attr_reader :species, :name
+  @@all = []
+
+  def initialize(species, name = "Victoria")
+    @species = species
+    @name = name
+    @@all << self
+    @cats = []
+    @dogs = []
+  end
+
+  def say_species
+    "I am a #{@species}."
+  end
+
+  def self.all
+    @@all
+  end
+
+  def self.count
+    @@all.length
+  end
+
+  def self.reset_all
+    @@all.clear
+  end
+
+  def buy_cat(name)
+    cat = Cat.new(name, self)
+    self.cats << cat
+    cat.owner = self
+  end
+
+  def buy_dog(name)
+    dog = Dog.new(name, self)
+    self.dogs << dog
+    dog.owner = self
+  end
+
+  def walk_dogs
+    self.dogs.each { |dog| dog.mood = "happy"}
+  end
+
+
+  def feed_cats
+    self.cats.map { |cat| cat.mood = "happy"}
+  end
+
+  def sell_pets
+    self.dogs.each { |dog| dog.mood = "nervous"}
+    self.cats.each { |cat| cat.mood = "nervous"}
+    self.dogs.each { |dog| dog.mood = "nervous"}
+    self.cats.each { |cat| cat.mood = "nervous"}
+
+  end
+
+  def list_pets
+    "I have " + "#{@dogs.length} dog(s), " + "and " + "#{@cats.length} cat(s)."
+  end
+
 end
