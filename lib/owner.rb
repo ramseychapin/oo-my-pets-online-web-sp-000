@@ -8,6 +8,7 @@ class Owner
     @species = species
     @name = name
     @@all << self
+
     @cats = []
     @dogs = []
   end
@@ -30,7 +31,7 @@ class Owner
 
   def buy_cat(name)
     cat = Cat.new(name, self)
-    self.cats << cat
+    @cats << cat
   end
 
   def buy_dog(name)
