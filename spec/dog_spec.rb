@@ -32,9 +32,10 @@ describe Dog do
   it "knows all the dogs" do
     Dog.all.include?(@dog)
   end
-    after do
-      Owner.all.clear
-      Dog.all.clear
-    end
+
+  after do
+    Owner.all.clear
+    Dog.all.clear
+  end
 
 end
