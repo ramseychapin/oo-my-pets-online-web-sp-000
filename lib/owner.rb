@@ -31,13 +31,11 @@ class Owner
   def buy_cat(name)
     cat = Cat.new(name, self)
     self.cats << cat
-    cat.owner = self
   end
 
   def buy_dog(name)
     dog = Dog.new(name, self)
     self.dogs << dog
-    dog.owner = self
   end
 
   def walk_dogs
