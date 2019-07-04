@@ -8,7 +8,6 @@ class Owner
     @species = species
     @name = name
     @@all << self
-
     @cats = []
     @dogs = []
   end
